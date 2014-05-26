@@ -21,7 +21,7 @@
 				<br><br>
 					<div class="row-fluid">
 						<div class="span12">
-							<div class="box box-bordered box-color satblue">
+							<div class="box box-bordered box-color">
 								<div class="box-title">
 									<h3><i class="icon-reorder"></i> Configuraci&oacute;n</h3>
 								</div>

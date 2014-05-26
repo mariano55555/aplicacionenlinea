@@ -27,10 +27,7 @@ if ($otros > 0) {
 	$i++;
 	}
 }
-/*debug($int1);
-echo "<pre>";
-print_r($instituciones);
-echo "</pre>";*/
+
 ?>
 <script>
 	$(function () {
@@ -57,7 +54,7 @@ echo "</pre>";*/
                         color: '#000000',
                         connectorColor: '#000000',
                         formatter: function() {
-                            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                            return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
                         }
                     }
                 }
@@ -74,7 +71,7 @@ echo "</pre>";*/
 </script>
 <div class="row-fluid">
 					<div class="span12">
-						<div class="box box-color box-bordered blue">
+						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
 									<i class="icon-group"></i>

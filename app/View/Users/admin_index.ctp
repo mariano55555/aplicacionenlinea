@@ -43,7 +43,7 @@
 				  </div>
 				</div>
 				<div id="usuarios">
-						<div class="box box-color box-bordered blue">
+						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
 									<i class="icon-table"></i>

@@ -551,6 +551,9 @@ private function __pdfreport2($data = array(), $actividades = array(), $estudios
 			$porcentaje5 = $this->__quinta($datos5);
 
 			$total = number_format(($porcentaje1+$porcentaje2+$porcentaje3+$porcentaje4+$porcentaje5)/5,2);
+
+			debug($postulantes[$i]['users']['name'].' '. $total);
+
 			if ($total == 100.00 && !empty($postulantes[$i]['aplicaciones']['codigoPostulante'])) {
 				$completado++;
 			}elseif ($total < 50) {

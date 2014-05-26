@@ -7,7 +7,7 @@ $cargos = $this->requestAction('admin/Cargos/index');
 <div class="row-fluid">
 					<div class="row-fluid">
 					<div class="span12">
-						<div class="box box-color box-bordered blue">
+						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
 									<i class="icon-sitemap"></i>

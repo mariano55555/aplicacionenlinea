@@ -48,7 +48,7 @@ if ($otros > 0) {
 	$i++;
 	}
 }
-
+debug($nofinalizado);
 if ($nofinalizado > 0) {
 	$categorias = "[
                 'Menor de 50%',
@@ -110,7 +110,7 @@ if ($nofinalizado > 0) {
                         color: '#000000',
                         connectorColor: '#000000',
                         formatter: function() {
-                            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                            return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
                         }
                     }
                 }

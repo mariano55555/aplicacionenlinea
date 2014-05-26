@@ -202,7 +202,6 @@ public function first()
 {
 
 	if ($this->request->is('post') || $this->request->is('put')) {
-		//debug($this->request->data);
 					$post = 1;
 					foreach ($this->request->data as $key => $value) {
 						if (strlen(trim($value)) == 0) 
@@ -246,7 +245,6 @@ public function first()
 						$this->User->save($data);
 						
 					}else{
-//						debug('aca');
 						// PONER A NULL EL CAMPO INSTITUCION_ID DE LA TABLA USER
 						$this->User->id = $this->usuarioAutenticado('id');
 						$data = array('institucion_id' => NULL);
@@ -284,8 +282,6 @@ public function first()
 					}
 					$this->Aplicacione->save($this->request->data);
 					
-//						debug($this->request->data['same7']);
-
 					if (isset($this->request->data['same7']) && $this->request->data['same7'] == '1') {// si tiene hermanos
 						// verificar si ya existe algun registro para el hermano ---- ACTUALIZAR
 						$hermanouserid = $this->Hermano->field("Hermano.id", array("Hermano.user_id" => $this->usuarioAutenticado('id')));
@@ -348,9 +344,6 @@ public function second()
 	if ($this->request->is('post') || $this->request->is('put')) {
 		$post = 1;
 		
-
-
-		//debug($this->request->data);
 		if(isset($this->request->data['telefono']) && strlen(trim($this->request->data['telefono'])) > 0)
 		{
 			$telfijo = $this->request->data['telefono'];
@@ -1821,16 +1814,19 @@ public function checkmail($email = null)
 			$porcentaje5 = $this->__quinta($datos5);
 
 			$total = number_format(($porcentaje1+$porcentaje2+$porcentaje3+$porcentaje4+$porcentaje5)/5,2);
+
+			debug($barra[$i]['users']['name'].' '. $total);
+
 			if ($total == 100.00 && !empty($barra[$i]['aplicaciones']['codigoPostulante'])) {
 				$completado++;
-			}elseif ($total < 50) {
-				$menordecincuenta++;
-			}elseif ($total >= 50 && $total < 75) {
-				$mayorde50menor75++;
 			}elseif ($total == 100.00 && empty($barra[$i]['aplicaciones']['codigoPostulante'])) {
 				$nofinalizado++;
 			}elseif ($total >= 75 && $total < 100) {
 				$entre75y100++;
+			}elseif ($total >= 50 && $total < 75) {
+				$mayorde50menor75++;
+			}elseif ($total < 50) {
+				$menordecincuenta++;
 			}else{
 
 			}

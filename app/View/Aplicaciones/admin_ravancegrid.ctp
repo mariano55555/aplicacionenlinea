@@ -69,7 +69,15 @@ $(document).ready(function() {
 });
 </script>
 
+<style>
+	
+.alert-other {
+color: #0B6138;
+background-color: #04B45F;
+border-color: #4B8A08;
+}
 
+</style>
 <div class="row-fluid">
 					<div class="span12">
 						<div class="box box-color box-bordered blue">
@@ -96,15 +104,28 @@ $(document).ready(function() {
 									<tbody>
 									<?php
 										for ($i=0; $i < count($postulantes); $i++) { 
-											if ($postulantes[$i]['users']['completado'] == 100) {
+										
+											if ($postulantes[$i]['users']['completado'] == 100 && !empty($postulantes[$i]['aplicaciones']['codigoPostulante'])) {
+											$valor = '
+											<div class="alert alert-other" style="margin-bottom:0px !important">
+												<strong>'.$postulantes[$i]['users']['completado'].' %</strong>
+											</div>
+											';
+											}elseif ($postulantes[$i]['users']['completado'] == 100 && empty($postulantes[$i]['aplicaciones']['codigoPostulante'])) {
 											$valor = '
 											<div class="alert alert-success" style="margin-bottom:0px !important">
 												<strong>'.$postulantes[$i]['users']['completado'].' %</strong>
 											</div>
 											';
-											}elseif ($postulantes[$i]['users']['completado'] < 100 && $postulantes[$i]['users']['completado'] > 50) {
+											}elseif ($postulantes[$i]['users']['completado'] >= 75 && $postulantes[$i]['users']['completado'] < 100) {
 											$valor = '
 											<div class="alert alert-info" style="margin-bottom:0px !important">
+												<strong>'.$postulantes[$i]['users']['completado'].' %</strong>
+											</div>
+											';
+											}elseif ($postulantes[$i]['users']['completado'] >= 50 && $postulantes[$i]['users']['completado'] < 75) {
+											$valor = '
+											<div class="alert alert-warning" style="margin-bottom:0px !important">
 												<strong>'.$postulantes[$i]['users']['completado'].' %</strong>
 											</div>
 											';
